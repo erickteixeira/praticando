@@ -1,6 +1,6 @@
 /* ************************************************************************ *
- *    ex11.c, V0.1.170928.1429                                              *
- *    Programa para vetor 2 por 3                                           *
+ *    ex12.c, V0.1.170929.2130                                              *
+ *    algoritmo para matriz tridimensional                                  *
  *                                                                          *
  *    Copyright (C) 2017 by Erick Antunes Teixeira                          *
  *                                                                          *
@@ -28,22 +28,28 @@
  */
 #include<stdio.h>
 
-#define PMAX 2/*linhas maximas*/
-#define QMAX 3/*colunas maximas*/
+#define LMAX 2
+#define CMAX 3
+#define TMAX 4
 
 int main(void)
 {
-    int p,/*linhas*/
-        q;/*colunas*/
-    char vc[PMAX][QMAX];
+    int l,
+        c,
+        t;
+    char vc[LMAX][CMAX][TMAX];
 
-    for(p=0; p<PMAX; p++)
-        for(q=0; q<QMAX; q++)
-            vc[p][q]='A'+QMAX*p+q;
+    /*fazendo o vetor*/
+    for(l=0; l<LMAX; l++)
+        for(c=0; c<CMAX; c++)
+            for(t=0; t<TMAX; t++)
+                vc[l][c][t]='A'+l*CMAX*TMAX + c*TMAX +t;
 
-    for(p=0; p<PMAX; p++)
-        for(q=0; q<QMAX; q++)
-            printf("vc[%d][%d]=%c (%p) \n", p, q, vc[p][q], &vc[p][q]);
+    /*printando o vetor*/
+    for(l=0; l<LMAX; l++)
+        for(c=0; c<CMAX; c++)
+            for(t=0; t<TMAX; t++)
+                printf("vc[%d][%d][%d]= %c (%p)\n", l, c, t, vc[l][c][t], &vc[l][c][t]);
 
     return 0;
 }
